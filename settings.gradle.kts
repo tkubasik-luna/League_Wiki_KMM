@@ -16,3 +16,6 @@ dependencyResolutionManagement {
 rootProject.name = "LeagueWiki"
 include(":androidApp")
 include(":shared")
+include(":domain")
+include(":repository")
+include(":remote")
