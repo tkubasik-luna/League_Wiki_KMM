@@ -1,10 +1,9 @@
 package com.lunabee.domain
 
-import com.lunabee.domain.model.Champion
+import com.lunabee.domain.model.ChampionInfo
 import kotlinx.coroutines.flow.Flow
 
 interface ChampionRepository {
     fun getTestFlow(): Flow<Int>
-    fun getChampionsInfo(): List<Champion>
-    suspend fun getTestDataFromRemote(): String
+    suspend fun getChampionList(): List<ChampionInfo>
 }

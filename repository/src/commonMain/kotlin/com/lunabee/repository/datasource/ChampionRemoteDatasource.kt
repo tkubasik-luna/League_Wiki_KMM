@@ -1,10 +1,7 @@
 package com.lunabee.repository.datasource
 
-import com.lunabee.domain.model.Champion
-import kotlinx.coroutines.flow.Flow
+import com.lunabee.domain.model.ChampionInfo
 
 interface ChampionRemoteDatasource {
-    fun getChampionsInfo(): List<Champion>
-
-    suspend fun getTestDataFromRemote(): String
+    suspend fun getChampionList(version: String): List<ChampionInfo>
 }

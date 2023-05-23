@@ -19,7 +19,7 @@ class TestViewModel: ObservableObject {
     private let repository = IosChampionRepository()
 
     func startCollectingFlow() {
-        let handle = Task {
+        _ = Task {
             do {
                 let sequence = asyncSequence(for: self.repository.testFlow)
                 for try await value in sequence {
@@ -33,10 +33,11 @@ class TestViewModel: ObservableObject {
     }
     
     func startCollectingRemote() {
-        let handleRemote = Task {
+        _ = Task {
             do {
-                let sequence = try await asyncFunction(for:self.repository.getRandomTestData())
-                value = sequence
+                let championList = try await asyncFunction(for:self.repository.getChampionList())
+                value = championList.first?.description() ?? "empty"
+                
             } catch {
                 print("Failed with error: \(error)")
             }
