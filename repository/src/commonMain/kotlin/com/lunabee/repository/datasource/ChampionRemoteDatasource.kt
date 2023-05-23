@@ -5,4 +5,6 @@ import kotlinx.coroutines.flow.Flow
 
 interface ChampionRemoteDatasource {
     fun getChampionsInfo(): List<Champion>
+
+    suspend fun getTestDataFromRemote(): String
 }

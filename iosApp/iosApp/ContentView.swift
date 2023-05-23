@@ -1,11 +1,18 @@
 import SwiftUI
 import shared
+import Combine
+import Foundation
+import KMPNativeCoroutinesCombine
 
 struct ContentView: View {
-	let greet = Greeting().greet()
+    @ObservedObject var viewModel: TestViewModel = TestViewModel()
 
-	var body: some View {
-		Text(greet)
+    init() {
+        viewModel.startCollectingRemote()
+    }
+    
+    var body: some View {
+        Text("result -> \(viewModel.value)")
 	}
 }
 

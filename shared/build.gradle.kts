@@ -1,13 +1,15 @@
 plugins {
     kotlin("multiplatform")
     id("com.android.library")
+    id("com.google.devtools.ksp")
+    id("com.rickclephas.kmp.nativecoroutines") version "1.0.0-ALPHA-10"
 }
 
 kotlin {
     android {
         compilations.all {
             kotlinOptions {
-                jvmTarget = "1.8"
+                jvmTarget = "17"
             }
         }
     }
@@ -27,10 +29,19 @@ kotlin {
             dependencies {
                 api(project(":domain"))
                 implementation(project(":repository"))
+                implementation(project(":remote"))
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.1")
+                implementation("io.insert-koin:koin-core:3.4.0")
+                implementation("io.ktor:ktor-client-core:2.3.0")
             }
         }
-        val androidMain by getting
+
+        val androidMain by getting {
+            dependencies {
+                implementation("io.ktor:ktor-client-android:2.3.0")
+            }
+        }
+
         val iosX64Main by getting
         val iosArm64Main by getting
         val iosSimulatorArm64Main by getting
@@ -39,6 +50,9 @@ kotlin {
             iosX64Main.dependsOn(this)
             iosArm64Main.dependsOn(this)
             iosSimulatorArm64Main.dependsOn(this)
+            dependencies {
+                implementation("io.ktor:ktor-client-darwin:2.3.0")
+            }
         }
     }
 }
@@ -49,4 +63,23 @@ android {
     defaultConfig {
         minSdk = 24
     }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+
+    kotlin {
+        jvmToolchain(17)
+    }
+}
+
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().all {
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_17.toString()
+    }
+}
+
+kotlin.sourceSets.all {
+    languageSettings.optIn("kotlin.experimental.ExperimentalObjCName")
 }

@@ -15,7 +15,15 @@ kotlin {
                 implementation(project(":domain"))
                 implementation(project(":repository"))
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.1")
+                implementation("me.tatarka.inject:kotlin-inject-runtime:0.6.1")
+                implementation("io.ktor:ktor-client-core:2.3.0")
             }
         }
+    }
+}
+
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().all {
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_17.toString()
     }
 }
