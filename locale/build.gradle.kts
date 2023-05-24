@@ -1,6 +1,6 @@
 plugins {
     kotlin("multiplatform")
-    id("kotlinx-serialization")
+    id("io.realm.kotlin") version "1.9.0"
 }
 
 kotlin {
@@ -15,9 +15,7 @@ kotlin {
                 implementation(project(":domain"))
                 implementation(project(":repository"))
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.1")
-                implementation("io.ktor:ktor-client-core:2.3.0")
-                implementation("io.ktor:ktor-serialization-kotlinx-json:2.3.0")
-                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.1")
+                implementation("io.realm.kotlin:library-base:1.9.0")
             }
         }
     }

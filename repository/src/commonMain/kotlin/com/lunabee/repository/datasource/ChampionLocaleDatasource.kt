@@ -1,13 +1,13 @@
-package com.lunabee.domain
+package com.lunabee.repository.datasource
 
 import com.lunabee.domain.model.ChampionDetail
 import com.lunabee.domain.model.ChampionInfo
 import kotlinx.coroutines.flow.Flow
 
-interface ChampionRepository {
+interface ChampionLocaleDatasource {
     fun getChampionsList(): Flow<List<ChampionInfo>>
-    suspend fun fetchChampionsList()
-    suspend fun fetchChampionsDetail(id: String)
     fun getChampionDetailById(id: String): Flow<ChampionDetail?>
+    suspend fun insertChampionDetail(championDetail: ChampionDetail)
+    suspend fun insertChampionsInfo(champions: List<ChampionInfo>)
     suspend fun insertFavorite(id: String, isFavorite: Boolean)
 }

@@ -12,10 +12,12 @@ class IosChampionRepository : KoinComponent {
     private val championRepository: ChampionRepository by inject()
 
     @NativeCoroutines
-    val testFlow: Flow<Int> = championRepository.getTestFlow()
+    suspend fun getChampionList() {
+        championRepository.fetchChampionsList()
+    }
 
     @NativeCoroutines
-    suspend fun getChampionList(): List<ChampionInfo> = championRepository.getChampionList()
+    val championListFlow: Flow<List<ChampionInfo>> = championRepository.getChampionsList()
 }
 
 fun initKoin() {

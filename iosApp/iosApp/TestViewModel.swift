@@ -8,8 +8,6 @@
 
 import Foundation
 import shared
-import Combine
-import KMPNativeCoroutinesCombine
 import KMPNativeCoroutinesAsync
 
 @MainActor
@@ -21,9 +19,8 @@ class TestViewModel: ObservableObject {
     func startCollectingFlow() {
         _ = Task {
             do {
-                let sequence = asyncSequence(for: self.repository.testFlow)
+                let sequence = asyncSequence(for: self.repository.championListFlow)
                 for try await value in sequence {
-                    print("Got random value: \(value)")
                     self.value = value.description
                 }
             } catch {
@@ -35,9 +32,8 @@ class TestViewModel: ObservableObject {
     func startCollectingRemote() {
         _ = Task {
             do {
-                let championList = try await asyncFunction(for:self.repository.getChampionList())
-                value = championList.first?.description() ?? "empty"
-                
+                _ = try await asyncFunction(for:self.repository.getChampionList())
+                print("Success")
             } catch {
                 print("Failed with error: \(error)")
             }

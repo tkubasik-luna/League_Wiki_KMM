@@ -6,5 +6,5 @@ import org.koin.core.module.Module
 import org.koin.dsl.module
 
 val domainModule: Module = module {
-    single<ChampionRepository> { ChampionRepositoryImpl(get(), get()) }
+    single<ChampionRepository> { ChampionRepositoryImpl(get(), get(), get()) }
 }

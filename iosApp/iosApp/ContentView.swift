@@ -9,6 +9,7 @@ struct ContentView: View {
 
     init() {
         viewModel.startCollectingRemote()
+        viewModel.startCollectingFlow()
     }
     
     var body: some View {
