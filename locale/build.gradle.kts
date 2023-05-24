@@ -12,10 +12,12 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
+                implementation(KotlinX.coroutines.core)
+                implementation("io.realm.kotlin:library-base:_")
+
+
                 implementation(project(":domain"))
                 implementation(project(":repository"))
-                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.1")
-                implementation("io.realm.kotlin:library-base:1.9.0")
             }
         }
     }

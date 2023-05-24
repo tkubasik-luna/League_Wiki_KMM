@@ -28,23 +28,25 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
+                implementation(KotlinX.coroutines.core)
+                implementation(Koin.core)
+                implementation(Ktor.client.core)
+                implementation(Ktor.client.serialization)
+                implementation("io.ktor:ktor-serialization-kotlinx-json:_")
+                implementation(Ktor.client.contentNegotiation)
+                implementation(Ktor.client.logging)
+                implementation("io.realm.kotlin:library-base:_")
+
                 api(project(":domain"))
                 implementation(project(":repository"))
                 implementation(project(":remote"))
                 implementation(project(":locale"))
-                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.1")
-                implementation("io.insert-koin:koin-core:3.4.0")
-                implementation("io.ktor:ktor-client-core:2.3.0")
-                implementation("io.ktor:ktor-serialization-kotlinx-json:2.3.0")
-                implementation("io.ktor:ktor-client-content-negotiation:2.3.0")
-                implementation("io.ktor:ktor-client-logging:2.3.0")
-                implementation("io.realm.kotlin:library-base:1.9.0")
             }
         }
 
         val androidMain by getting {
             dependencies {
-                implementation("io.ktor:ktor-client-android:2.3.0")
+                implementation(Ktor.client.android)
             }
         }
 
@@ -57,7 +59,7 @@ kotlin {
             iosArm64Main.dependsOn(this)
             iosSimulatorArm64Main.dependsOn(this)
             dependencies {
-                implementation("io.ktor:ktor-client-darwin:2.3.0")
+                implementation(Ktor.client.darwin)
             }
         }
     }

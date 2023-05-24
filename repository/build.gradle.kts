@@ -11,8 +11,9 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
+                implementation(KotlinX.coroutines.core)
+
                 implementation(project(":domain"))
-                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.1")
             }
         }
     }
