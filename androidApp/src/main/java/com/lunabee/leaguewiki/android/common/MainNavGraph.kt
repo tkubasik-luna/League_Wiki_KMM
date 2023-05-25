@@ -5,8 +5,8 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.lunabee.leaguewiki.android.feature.HomeDestination
-import com.lunabee.leaguewiki.android.feature.HomeRoute
+import com.lunabee.leaguewiki.android.feature.home.HomeDestination
+import com.lunabee.leaguewiki.android.feature.home.HomeRoute
 
 @Composable
 fun MainNavGraph() {

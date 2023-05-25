@@ -28,9 +28,9 @@ fun LeagueWikiTheme(
 }
 
 object LeagueWikiTheme {
-    //val colors: IGColorScheme
-    //    @Composable
-    //    get() = LocalIGColor.current
+    val colors: LeagueWikiColorScheme
+        @Composable
+        get() = LocalLWColor.current
 
     val typography: LeagueWikiTypography
         @Composable

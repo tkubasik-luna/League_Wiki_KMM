@@ -1,4 +1,4 @@
-package com.lunabee.leaguewiki.android.feature
+package com.lunabee.leaguewiki.android.feature.home
 
 import com.lunabee.leaguewiki.android.common.LeagueWikiDestination
 
