@@ -3,54 +3,16 @@ package com.lunabee.leaguewiki.android
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
-import androidx.compose.ui.Modifier
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import com.lunabee.domain.ChampionRepository
-import com.lunabee.domain.model.ChampionInfo
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.launch
-import org.koin.androidx.compose.koinViewModel
+import com.lunabee.leaguewiki.android.common.MainNavGraph
+import com.lunabee.leaguewiki.android.theme.LeagueWikiTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            MyApplicationTheme {
-                Surface(
-                    modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.background
-                ) {
-                    GreetingView()
-                }
+            LeagueWikiTheme {
+                MainNavGraph()
             }
-        }
-    }
-}
-
-@Composable
-fun GreetingView(
-    viewModel: TestViewModel = koinViewModel(),
-) {
-    val championInfo by viewModel.championInfo.collectAsState(initial = listOf())
-    Text(text = championInfo.toString())
-}
-
-class TestViewModel(
-    private val championRepository: ChampionRepository,
-) : ViewModel() {
-
-    val championInfo: Flow<List<ChampionInfo>> = championRepository.getChampionsList()
-
-    init {
-        viewModelScope.launch {
-            championRepository.fetchChampionsList()
         }
     }
 }
