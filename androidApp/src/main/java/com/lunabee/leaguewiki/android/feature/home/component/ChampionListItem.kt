@@ -1,13 +1,16 @@
 package com.lunabee.leaguewiki.android.feature.home.component
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
@@ -32,22 +35,26 @@ fun ChampionListItem(
 ) {
     Box(
         modifier = modifier
+            .fillMaxWidth()
             .clip(RoundedCornerShape(LeagueWikiTheme.radius.small))
-            .padding(LeagueWikiTheme.spacing.large)
+            .background(LeagueWikiTheme.colors.backgroundSecondary)
     ) {
         Row(
-            verticalAlignment = Alignment.CenterVertically
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier.padding(LeagueWikiTheme.spacing.medium)
         ) {
             Image(
                 painter = rememberAsyncImagePainter(model = championInfo.imageUrl),
                 contentDescription = null,
-                modifier = Modifier.size(SharedConstants.HomeDimens.ChampionImageSize.dp)
+                modifier = Modifier
+                    .size(SharedConstants.HomeDimens.ChampionImageSize.dp)
+                    .clip(CircleShape)
             )
             Spacer(modifier = Modifier.width(LeagueWikiTheme.spacing.large))
             Column {
                 Text(
                     text = championInfo.title.orEmpty(),
-                    style = LeagueWikiTheme.typography.text2Xl,
+                    style = LeagueWikiTheme.typography.textLarge,
                     color = LeagueWikiTheme.colors.contentPrimary
                 )
                 Text(
