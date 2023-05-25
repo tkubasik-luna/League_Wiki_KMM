@@ -12,10 +12,11 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.lunabee.domain.ChampionRepository
 import com.lunabee.domain.model.ChampionInfo
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.launch
 import org.koin.androidx.compose.koinViewModel
 
 class MainActivity : ComponentActivity() {
@@ -45,7 +46,11 @@ class TestViewModel(
     private val championRepository: ChampionRepository,
 ) : ViewModel() {
 
-    val championInfo: Flow<List<ChampionInfo>> = flow {
-        emit(championRepository.getChampionList())
+    val championInfo: Flow<List<ChampionInfo>> = championRepository.getChampionsList()
+
+    init {
+        viewModelScope.launch {
+            championRepository.fetchChampionsList()
+        }
     }
 }
