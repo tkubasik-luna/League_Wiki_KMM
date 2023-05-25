@@ -71,21 +71,6 @@ android {
     defaultConfig {
         minSdk = 24
     }
-
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
-    }
-
-    kotlin {
-        jvmToolchain(17)
-    }
-}
-
-tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().all {
-    kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_17.toString()
-    }
 }
 
 kotlin.sourceSets.all {
@@ -93,6 +78,12 @@ kotlin.sourceSets.all {
 }
 
 afterEvaluate {
+    java {
+        toolchain {
+            languageVersion.set(JavaLanguageVersion.of(JavaVersion.VERSION_17.toString()))
+        }
+    }
+
     tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
         kotlinOptions {
             jvmTarget = JavaVersion.VERSION_17.toString()
