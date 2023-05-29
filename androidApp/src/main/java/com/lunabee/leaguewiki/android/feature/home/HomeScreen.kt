@@ -26,13 +26,17 @@ import org.koin.androidx.compose.koinViewModel
 fun HomeRoute(
     viewModel: HomeViewModel = koinViewModel(),
 ) {
-    val championList by viewModel.championsList.collectAsState(initial = listOf())
-    HomeScreen(championList)
+    val championList by viewModel.championList.collectAsState(initial = listOf())
+    HomeScreen(
+        championList = championList,
+        onFavoriteClick = { viewModel.uiToggleFavorite(it) }
+    )
 }
 
 @Composable
 fun HomeScreen(
     championList: List<UiChampionInfo>,
+    onFavoriteClick: (String) -> Unit,
 ) {
     Column(
         modifier = Modifier
@@ -59,7 +63,7 @@ fun HomeScreen(
         ) {
             items(championList) {
                 ChampionListItem(
-                    onFavClick = { /*TODO*/ },
+                    onFavClick = { onFavoriteClick(it.id) },
                     championInfo = it,
                     modifier = Modifier.padding(horizontal = LeagueWikiTheme.spacing.large)
                 )

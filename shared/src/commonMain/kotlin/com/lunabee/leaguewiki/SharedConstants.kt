@@ -1,4 +1,4 @@
-package com.lunabee.leaguewiki.feature
+package com.lunabee.leaguewiki
 
 object SharedConstants {
     object Url {

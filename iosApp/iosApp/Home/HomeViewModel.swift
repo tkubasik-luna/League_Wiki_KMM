@@ -11,18 +11,29 @@ import shared
 import KMPNativeCoroutinesAsync
 
 @MainActor
-class TestViewModel: ObservableObject {
-    @Published var value = "_"
+class HomeViewModel: ObservableObject {
+    @Published var value: [UiChampionInfo] = []
     
-    private let repository = IosChampionRepository()
+    private let delegate = IosHomeViewModelDelegate()
 
     func startCollectingFlow() {
         _ = Task {
             do {
-                let sequence = asyncSequence(for: self.repository.championListFlow)
+                let sequence = asyncSequence(for: self.delegate.championList)
                 for try await value in sequence {
-                    self.value = value.description
+                    self.value = value
                 }
+            } catch {
+                print("Failed with error: \(error)")
+            }
+        }
+    }
+    
+    func toggleFavorite(id: String) {
+        _ = Task {
+            do {
+                _ = try await asyncFunction(for:self.delegate.toggleFavorite(id: id))
+                print("Success setFavorite")
             } catch {
                 print("Failed with error: \(error)")
             }
@@ -32,7 +43,7 @@ class TestViewModel: ObservableObject {
     func startCollectingRemote() {
         _ = Task {
             do {
-                _ = try await asyncFunction(for:self.repository.getChampionList())
+                _ = try await asyncFunction(for:self.delegate.refresh())
                 print("Success")
             } catch {
                 print("Failed with error: \(error)")

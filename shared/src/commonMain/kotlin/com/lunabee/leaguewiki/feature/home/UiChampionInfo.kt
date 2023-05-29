@@ -1,7 +1,7 @@
 package com.lunabee.leaguewiki.feature.home
 
 import com.lunabee.domain.model.ChampionInfo
-import com.lunabee.leaguewiki.feature.SharedConstants
+import com.lunabee.leaguewiki.SharedConstants
 
 data class UiChampionInfo(
     val id: String,

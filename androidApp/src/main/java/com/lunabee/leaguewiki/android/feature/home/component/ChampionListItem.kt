@@ -24,7 +24,7 @@ import androidx.compose.ui.unit.dp
 import coil.compose.rememberAsyncImagePainter
 import com.lunabee.leaguewiki.android.R
 import com.lunabee.leaguewiki.android.theme.LeagueWikiTheme
-import com.lunabee.leaguewiki.feature.SharedConstants
+import com.lunabee.leaguewiki.SharedConstants
 import com.lunabee.leaguewiki.feature.home.UiChampionInfo
 
 @Composable
@@ -53,12 +53,12 @@ fun ChampionListItem(
             Spacer(modifier = Modifier.width(LeagueWikiTheme.spacing.large))
             Column {
                 Text(
-                    text = championInfo.title.orEmpty(),
+                    text = championInfo.name.orEmpty(),
                     style = LeagueWikiTheme.typography.textLarge,
                     color = LeagueWikiTheme.colors.contentPrimary
                 )
                 Text(
-                    text = championInfo.name.orEmpty(),
+                    text = championInfo.title.orEmpty(),
                     style = LeagueWikiTheme.typography.textBase,
                     color = LeagueWikiTheme.colors.contentPrimary
                 )

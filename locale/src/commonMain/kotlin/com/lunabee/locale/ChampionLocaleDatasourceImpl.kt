@@ -30,6 +30,6 @@ class ChampionLocaleDatasourceImpl(
     }
 
     override suspend fun insertFavorite(id: String, isFavorite: Boolean) {
-        TODO("Not yet implemented")
+        championDao.insertFavorite(id, isFavorite)
     }
 }

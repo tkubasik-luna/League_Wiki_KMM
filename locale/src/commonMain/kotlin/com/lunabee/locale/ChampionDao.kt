@@ -26,4 +26,11 @@ class ChampionDao(
             }
         }
     }
+
+    suspend fun insertFavorite(id: String, isFavorite: Boolean) {
+        realm.write {
+            val champion = query<RealmChampionInfo>("id == $0", id).first().find()
+            champion?.isFavorite = isFavorite
+        }
+    }
 }

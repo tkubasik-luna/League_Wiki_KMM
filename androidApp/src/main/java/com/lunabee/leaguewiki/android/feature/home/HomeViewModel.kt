@@ -2,19 +2,19 @@ package com.lunabee.leaguewiki.android.feature.home
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.lunabee.leaguewiki.feature.home.HomeViewModelPreparer
-import com.lunabee.leaguewiki.feature.home.UiChampionInfo
-import kotlinx.coroutines.flow.Flow
+import com.lunabee.leaguewiki.feature.home.HomeViewModelDelegate
 import kotlinx.coroutines.launch
 
 class HomeViewModel(
-    private val homeViewModelPreparer: HomeViewModelPreparer,
-) : ViewModel() {
-    val championsList: Flow<List<UiChampionInfo>> = homeViewModelPreparer.championList
-
+    private val homeViewModelDelegate: HomeViewModelDelegate,
+) : ViewModel(), HomeViewModelDelegate by homeViewModelDelegate {
     init {
         viewModelScope.launch {
-            homeViewModelPreparer.refresh()
+            refresh()
         }
+    }
+
+    fun uiToggleFavorite(id: String) {
+        viewModelScope.launch { toggleFavorite(id) }
     }
 }

@@ -8,13 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		058557BB273AAA24004C7B11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058557BA273AAA24004C7B11 /* Assets.xcassets */; };
-		058557D9273AAEEB004C7B11 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */; };
 		2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FB032600AC8F00CF470E /* iOSApp.swift */; };
-		7555FF83242A565900829871 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
+		7555FF83242A565900829871 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* HomeScreen.swift */; };
 		7D17E9B52A1D220E00D00313 /* KMPNativeCoroutinesAsync in Frameworks */ = {isa = PBXBuildFile; productRef = 7D17E9B42A1D220E00D00313 /* KMPNativeCoroutinesAsync */; };
 		7D17E9B72A1D220E00D00313 /* KMPNativeCoroutinesCombine in Frameworks */ = {isa = PBXBuildFile; productRef = 7D17E9B62A1D220E00D00313 /* KMPNativeCoroutinesCombine */; };
 		7D17E9B92A1D220E00D00313 /* KMPNativeCoroutinesCore in Frameworks */ = {isa = PBXBuildFile; productRef = 7D17E9B82A1D220E00D00313 /* KMPNativeCoroutinesCore */; };
-		7D17E9BB2A1D26B800D00313 /* TestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D17E9BA2A1D26B800D00313 /* TestViewModel.swift */; };
+		7D17E9BB2A1D26B800D00313 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D17E9BA2A1D26B800D00313 /* HomeViewModel.swift */; };
+		7D17E9BD2A225F0400D00313 /* ChampionListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D17E9BC2A225F0400D00313 /* ChampionListItemView.swift */; };
+		7D17E9BF2A2341BC00D00313 /* FavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D17E9BE2A2341BC00D00313 /* FavoriteButton.swift */; };
+		7D17E9C12A23B6B200D00313 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D17E9C02A23B6B200D00313 /* Colors.swift */; };
+		7D17E9C52A23BA6400D00313 /* FrizQuadrata-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7D17E9C42A23BA6400D00313 /* FrizQuadrata-Regular.ttf */; };
+		7D17E9C72A23BE8000D00313 /* Typography.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D17E9C62A23BE8000D00313 /* Typography.swift */; };
+		7D17E9CC2A23C66B00D00313 /* ChampionDetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D17E9CB2A23C66B00D00313 /* ChampionDetailScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -32,12 +37,17 @@
 
 /* Begin PBXFileReference section */
 		058557BA273AAA24004C7B11 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2152FB032600AC8F00CF470E /* iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSApp.swift; sourceTree = "<group>"; };
 		7555FF7B242A565900829871 /* iosApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		7555FF82242A565900829871 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		7555FF82242A565900829871 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7D17E9BA2A1D26B800D00313 /* TestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewModel.swift; sourceTree = "<group>"; };
+		7D17E9BA2A1D26B800D00313 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		7D17E9BC2A225F0400D00313 /* ChampionListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionListItemView.swift; sourceTree = "<group>"; };
+		7D17E9BE2A2341BC00D00313 /* FavoriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteButton.swift; sourceTree = "<group>"; };
+		7D17E9C02A23B6B200D00313 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		7D17E9C42A23BA6400D00313 /* FrizQuadrata-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FrizQuadrata-Regular.ttf"; sourceTree = "<group>"; };
+		7D17E9C62A23BE8000D00313 /* Typography.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typography.swift; sourceTree = "<group>"; };
+		7D17E9CB2A23C66B00D00313 /* ChampionDetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionDetailScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +64,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		058557D7273AAEEB004C7B11 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
-			sourceTree = "<group>";
-		};
 		7555FF72242A565900829871 = {
 			isa = PBXGroup;
 			children = (
@@ -82,12 +84,13 @@
 		7555FF7D242A565900829871 /* iosApp */ = {
 			isa = PBXGroup;
 			children = (
-				058557BA273AAA24004C7B11 /* Assets.xcassets */,
-				7555FF82242A565900829871 /* ContentView.swift */,
-				7555FF8C242A565B00829871 /* Info.plist */,
-				7D17E9BA2A1D26B800D00313 /* TestViewModel.swift */,
+				7D17E9CA2A23C65400D00313 /* ChampionDetail */,
+				7D17E9C92A23C5C200D00313 /* Common */,
+				7D17E9C82A23C5AD00D00313 /* Home */,
 				2152FB032600AC8F00CF470E /* iOSApp.swift */,
-				058557D7273AAEEB004C7B11 /* Preview Content */,
+				058557BA273AAA24004C7B11 /* Assets.xcassets */,
+				7555FF8C242A565B00829871 /* Info.plist */,
+				7D17E9C22A23B9FE00D00313 /* Theme */,
 			);
 			path = iosApp;
 			sourceTree = "<group>";
@@ -97,6 +100,50 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7D17E9C22A23B9FE00D00313 /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				7D17E9C32A23BA2700D00313 /* Fonts */,
+				7D17E9C02A23B6B200D00313 /* Colors.swift */,
+				7D17E9C62A23BE8000D00313 /* Typography.swift */,
+			);
+			path = Theme;
+			sourceTree = "<group>";
+		};
+		7D17E9C32A23BA2700D00313 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				7D17E9C42A23BA6400D00313 /* FrizQuadrata-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		7D17E9C82A23C5AD00D00313 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				7555FF82242A565900829871 /* HomeScreen.swift */,
+				7D17E9BA2A1D26B800D00313 /* HomeViewModel.swift */,
+				7D17E9BC2A225F0400D00313 /* ChampionListItemView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		7D17E9C92A23C5C200D00313 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				7D17E9BE2A2341BC00D00313 /* FavoriteButton.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		7D17E9CA2A23C65400D00313 /* ChampionDetail */ = {
+			isa = PBXGroup;
+			children = (
+				7D17E9CB2A23C66B00D00313 /* ChampionDetailScreen.swift */,
+			);
+			path = ChampionDetail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -167,8 +214,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				058557D9273AAEEB004C7B11 /* Preview Assets.xcassets in Resources */,
 				058557BB273AAA24004C7B11 /* Assets.xcassets in Resources */,
+				7D17E9C52A23BA6400D00313 /* FrizQuadrata-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,9 +246,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7D17E9BB2A1D26B800D00313 /* TestViewModel.swift in Sources */,
+				7D17E9C72A23BE8000D00313 /* Typography.swift in Sources */,
+				7D17E9BB2A1D26B800D00313 /* HomeViewModel.swift in Sources */,
+				7D17E9C12A23B6B200D00313 /* Colors.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
-				7555FF83242A565900829871 /* ContentView.swift in Sources */,
+				7D17E9BD2A225F0400D00313 /* ChampionListItemView.swift in Sources */,
+				7D17E9BF2A2341BC00D00313 /* FavoriteButton.swift in Sources */,
+				7555FF83242A565900829871 /* HomeScreen.swift in Sources */,
+				7D17E9CC2A23C66B00D00313 /* ChampionDetailScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,13 +381,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"iosApp/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../shared/build/xcode-frameworks/$(CONFIGURATION)/$(SDK_NAME)",
 				);
 				INFOPLIST_FILE = iosApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -357,13 +409,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"iosApp/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../shared/build/xcode-frameworks/$(CONFIGURATION)/$(SDK_NAME)",
 				);
 				INFOPLIST_FILE = iosApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
