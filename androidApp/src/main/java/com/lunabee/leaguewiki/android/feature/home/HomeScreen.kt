@@ -17,6 +17,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import com.lunabee.leaguewiki.android.common.component.SectionTitle
 import com.lunabee.leaguewiki.android.feature.home.component.ChampionListItem
 import com.lunabee.leaguewiki.android.theme.LeagueWikiTheme
 import com.lunabee.leaguewiki.feature.home.UiChampionInfo
@@ -24,12 +25,14 @@ import org.koin.androidx.compose.koinViewModel
 
 @Composable
 fun HomeRoute(
+    navigateToChampionDetail: (String) -> Unit,
     viewModel: HomeViewModel = koinViewModel(),
 ) {
     val championList by viewModel.championList.collectAsState(initial = listOf())
     HomeScreen(
         championList = championList,
-        onFavoriteClick = { viewModel.uiToggleFavorite(it) }
+        onFavoriteClick = { viewModel.uiToggleFavorite(it) },
+        onChampionClick = navigateToChampionDetail
     )
 }
 
@@ -37,6 +40,7 @@ fun HomeRoute(
 fun HomeScreen(
     championList: List<UiChampionInfo>,
     onFavoriteClick: (String) -> Unit,
+    onChampionClick: (String) -> Unit,
 ) {
     Column(
         modifier = Modifier
@@ -61,8 +65,31 @@ fun HomeScreen(
             verticalArrangement = Arrangement.spacedBy(LeagueWikiTheme.spacing.medium),
             contentPadding = PaddingValues(vertical = LeagueWikiTheme.spacing.large)
         ) {
+            if (championList.any { it.isFavorite }) {
+                item {
+                    SectionTitle(
+                        title = "Favorites",
+                        modifier = Modifier.padding(horizontal = LeagueWikiTheme.spacing.large)
+                    )
+                }
+                items(championList.filter { it.isFavorite }) {
+                    ChampionListItem(
+                        onClick = { onChampionClick(it.id) },
+                        onFavClick = { onFavoriteClick(it.id) },
+                        championInfo = it,
+                        modifier = Modifier.padding(horizontal = LeagueWikiTheme.spacing.large)
+                    )
+                }
+                item {
+                    SectionTitle(
+                        title = "Tous",
+                        modifier = Modifier.padding(horizontal = LeagueWikiTheme.spacing.large)
+                    )
+                }
+            }
             items(championList) {
                 ChampionListItem(
+                    onClick = { onChampionClick(it.id) },
                     onFavClick = { onFavoriteClick(it.id) },
                     championInfo = it,
                     modifier = Modifier.padding(horizontal = LeagueWikiTheme.spacing.large)

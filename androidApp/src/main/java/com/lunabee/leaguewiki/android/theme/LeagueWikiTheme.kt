@@ -1,6 +1,7 @@
 package com.lunabee.leaguewiki.android.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.ProvidableCompositionLocal
@@ -23,7 +24,9 @@ fun LeagueWikiTheme(
         LocalLWSpacing provides LeagueWikiSpacing,
         LocalLWRadius provides LeagueWikiRadius,
     ) {
-        content()
+        MaterialTheme {
+            content()
+        }
     }
 }
 

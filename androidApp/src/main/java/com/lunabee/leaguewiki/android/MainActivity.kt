@@ -23,7 +23,7 @@ class MainActivity : ComponentActivity() {
             systemUiController.setSystemBarsColor(
                 color = Color.Transparent,
                 isNavigationBarContrastEnforced = false,
-                darkIcons = !isSystemInDarkTheme(),
+                darkIcons = false,
             )
 
             LeagueWikiTheme {

@@ -26,3 +26,7 @@ data class UiChampionInfo(
 private fun getImageUrl(version: String, id: String): String {
     return "${SharedConstants.Url.BASE_URL}cdn/$version/img/champion/$id.png"
 }
+
+private fun getSplashUrl(id: String): String {
+    return "${SharedConstants.Url.BASE_URL}cdn/img/champion/splash/${id}_1.png"
+}

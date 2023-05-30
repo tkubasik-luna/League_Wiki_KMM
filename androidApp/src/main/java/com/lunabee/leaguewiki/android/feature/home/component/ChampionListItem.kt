@@ -2,6 +2,7 @@ package com.lunabee.leaguewiki.android.feature.home.component
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -22,14 +23,15 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import coil.compose.rememberAsyncImagePainter
+import com.lunabee.leaguewiki.SharedConstants
 import com.lunabee.leaguewiki.android.R
 import com.lunabee.leaguewiki.android.theme.LeagueWikiTheme
-import com.lunabee.leaguewiki.SharedConstants
 import com.lunabee.leaguewiki.feature.home.UiChampionInfo
 
 @Composable
 fun ChampionListItem(
     onFavClick: () -> Unit,
+    onClick: () -> Unit,
     modifier: Modifier = Modifier,
     championInfo: UiChampionInfo,
 ) {
@@ -38,6 +40,7 @@ fun ChampionListItem(
             .fillMaxWidth()
             .clip(RoundedCornerShape(LeagueWikiTheme.radius.small))
             .background(LeagueWikiTheme.colors.backgroundSecondary)
+            .clickable(onClick = onClick)
     ) {
         Row(
             verticalAlignment = Alignment.CenterVertically,
@@ -60,7 +63,7 @@ fun ChampionListItem(
                 Text(
                     text = championInfo.title.orEmpty(),
                     style = LeagueWikiTheme.typography.textBase,
-                    color = LeagueWikiTheme.colors.contentPrimary
+                    color = LeagueWikiTheme.colors.contentSecondary
                 )
             }
         }
