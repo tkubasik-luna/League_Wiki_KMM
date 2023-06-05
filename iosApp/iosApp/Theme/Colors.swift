@@ -10,7 +10,7 @@ import Foundation
 import SwiftUI
 
 class LeagueWikiColorTheme {
-    static var background: Color  {
+    static var background: Color {
         return Color("Background")
     }
     static var backgroundSecondary: Color  {
@@ -29,6 +29,6 @@ class LeagueWikiColorTheme {
         return Color("ContentSecondary")
     }
     static var contentOnPrimary: Color  {
-        return Color("contentOnPrimary")
+        return Color("ContentOnPrimary")
     }
 }

@@ -44,10 +44,15 @@ class HomeViewModel: ObservableObject {
         _ = Task {
             do {
                 _ = try await asyncFunction(for:self.delegate.refresh())
-                print("Success")
+                print("Success refresh")
             } catch {
                 print("Failed with error: \(error)")
             }
         }
+    }
+    
+    init() {
+        startCollectingRemote()
+        startCollectingFlow()
     }
 }

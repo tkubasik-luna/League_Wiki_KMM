@@ -5,12 +5,11 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Text
@@ -26,23 +25,21 @@ import com.lunabee.leaguewiki.android.theme.LeagueWikiTheme
 import com.lunabee.leaguewiki.feature.home.UiChampionInfo
 
 @Composable
-fun ChampionListItem(
-    onFavClick: () -> Unit,
-    onClick: () -> Unit,
+fun ChampionFavoriteCell(
     modifier: Modifier = Modifier,
+    onClick: () -> Unit,
+    onFavClick: () -> Unit,
     championInfo: UiChampionInfo,
 ) {
-    Box(
+    Column(
         modifier = modifier
-            .fillMaxWidth()
             .clip(RoundedCornerShape(LeagueWikiTheme.radius.small))
             .background(LeagueWikiTheme.colors.backgroundSecondary)
             .clickable(onClick = onClick)
+            .padding(LeagueWikiTheme.spacing.medium),
+        horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        Row(
-            verticalAlignment = Alignment.CenterVertically,
-            modifier = Modifier.padding(LeagueWikiTheme.spacing.medium)
-        ) {
+        Box {
             Image(
                 painter = rememberAsyncImagePainter(model = championInfo.imageUrl),
                 contentDescription = null,
@@ -50,25 +47,19 @@ fun ChampionListItem(
                     .size(SharedConstants.HomeDimens.ChampionImageSize.dp)
                     .clip(CircleShape)
             )
-            Spacer(modifier = Modifier.width(LeagueWikiTheme.spacing.large))
-            Column {
-                Text(
-                    text = championInfo.name.orEmpty(),
-                    style = LeagueWikiTheme.typography.textLarge,
-                    color = LeagueWikiTheme.colors.contentPrimary
-                )
-                Text(
-                    text = championInfo.title.orEmpty(),
-                    style = LeagueWikiTheme.typography.textBase,
-                    color = LeagueWikiTheme.colors.contentSecondary
-                )
-            }
+            FavoriteIconButton(
+                onFavClick = onFavClick,
+                isFavorite = championInfo.isFavorite,
+                modifier = Modifier
+                    .align(Alignment.BottomEnd)
+                    .offset(x = LeagueWikiTheme.spacing.large, y = LeagueWikiTheme.spacing.large)
+            )
         }
-
-        FavoriteIconButton(
-            onFavClick = onFavClick,
-            modifier = Modifier.align(Alignment.TopEnd),
-            isFavorite = championInfo.isFavorite
+        Spacer(modifier = Modifier.height(LeagueWikiTheme.spacing.medium))
+        Text(
+            text = championInfo.name.orEmpty(),
+            style = LeagueWikiTheme.typography.textLarge,
+            color = LeagueWikiTheme.colors.contentPrimary
         )
     }
 }

@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -18,6 +19,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import com.lunabee.leaguewiki.android.common.component.SectionTitle
+import com.lunabee.leaguewiki.android.feature.home.component.ChampionFavoriteCell
 import com.lunabee.leaguewiki.android.feature.home.component.ChampionListItem
 import com.lunabee.leaguewiki.android.theme.LeagueWikiTheme
 import com.lunabee.leaguewiki.feature.home.UiChampionInfo
@@ -72,13 +74,21 @@ fun HomeScreen(
                         modifier = Modifier.padding(horizontal = LeagueWikiTheme.spacing.large)
                     )
                 }
-                items(championList.filter { it.isFavorite }) {
-                    ChampionListItem(
-                        onClick = { onChampionClick(it.id) },
-                        onFavClick = { onFavoriteClick(it.id) },
-                        championInfo = it,
-                        modifier = Modifier.padding(horizontal = LeagueWikiTheme.spacing.large)
-                    )
+                item {
+                    LazyRow(
+                        modifier = Modifier.fillMaxWidth(),
+                        contentPadding = PaddingValues(horizontal = LeagueWikiTheme.spacing.large),
+                        horizontalArrangement = Arrangement.spacedBy(LeagueWikiTheme.spacing.medium)
+                    ) {
+                        items(championList.filter { it.isFavorite }) {
+                            ChampionFavoriteCell(
+                                onClick = { onChampionClick(it.id) },
+                                onFavClick = { onFavoriteClick(it.id) },
+                                championInfo = it,
+                                modifier = Modifier.fillMaxWidth(0.33f)
+                            )
+                        }
+                    }
                 }
                 item {
                     SectionTitle(

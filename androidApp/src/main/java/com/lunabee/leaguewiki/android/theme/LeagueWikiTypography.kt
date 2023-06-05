@@ -30,7 +30,6 @@ object LeagueWikiTypography {
     val text5Xl: TextStyle = TextStyle(
         fontFamily = FrizQuadrata,
         fontSize = 48.sp,
-        lineHeight = 64.sp,
         fontWeight = FontWeight.W700,
         platformStyle = IGCompat.getPlatformStyleCompat(),
     )
@@ -38,7 +37,6 @@ object LeagueWikiTypography {
     val text4Xl: TextStyle = TextStyle(
         fontFamily = FrizQuadrata,
         fontSize = 36.sp,
-        lineHeight = 40.sp,
         fontWeight = FontWeight.W700,
         platformStyle = IGCompat.getPlatformStyleCompat(),
     )
@@ -46,7 +44,6 @@ object LeagueWikiTypography {
     val text3Xl: TextStyle = TextStyle(
         fontFamily = FrizQuadrata,
         fontSize = 30.sp,
-        lineHeight = 36.sp,
         fontWeight = FontWeight.W700,
         platformStyle = IGCompat.getPlatformStyleCompat(),
     )
@@ -54,7 +51,6 @@ object LeagueWikiTypography {
     val text2Xl: TextStyle = TextStyle(
         fontFamily = FrizQuadrata,
         fontSize = 24.sp,
-        lineHeight = 32.sp,
         fontWeight = FontWeight.W700,
         platformStyle = IGCompat.getPlatformStyleCompat(),
     )
@@ -62,7 +58,6 @@ object LeagueWikiTypography {
     val textXl: TextStyle = TextStyle(
         fontFamily = FrizQuadrata,
         fontSize = 20.sp,
-        lineHeight = 28.sp,
         fontWeight = FontWeight.W700,
         platformStyle = IGCompat.getPlatformStyleCompat(),
     )
@@ -70,7 +65,6 @@ object LeagueWikiTypography {
     val textXlMedium: TextStyle = TextStyle(
         fontFamily = FrizQuadrata,
         fontSize = 20.sp,
-        lineHeight = 28.sp,
         fontWeight = FontWeight.W500,
         platformStyle = IGCompat.getPlatformStyleCompat(),
     )
@@ -78,7 +72,6 @@ object LeagueWikiTypography {
     val textLarge: TextStyle = TextStyle(
         fontFamily = FrizQuadrata,
         fontSize = 18.sp,
-        lineHeight = 28.sp,
         fontWeight = FontWeight.W400,
         platformStyle = IGCompat.getPlatformStyleCompat(),
     )
@@ -86,7 +79,6 @@ object LeagueWikiTypography {
     val textLargeBold: TextStyle = TextStyle(
         fontFamily = FrizQuadrata,
         fontSize = 18.sp,
-        lineHeight = 28.sp,
         fontWeight = FontWeight.W700,
         platformStyle = IGCompat.getPlatformStyleCompat(),
     )
@@ -94,7 +86,6 @@ object LeagueWikiTypography {
     val textBase: TextStyle = TextStyle(
         fontFamily = FrizQuadrata,
         fontSize = 15.sp,
-        lineHeight = 24.sp,
         fontWeight = FontWeight.W400,
         platformStyle = IGCompat.getPlatformStyleCompat(),
     )
@@ -102,7 +93,6 @@ object LeagueWikiTypography {
     val textBaseLink: TextStyle = TextStyle(
         fontFamily = FrizQuadrata,
         fontSize = 15.sp,
-        lineHeight = 24.sp,
         fontWeight = FontWeight.W400,
         textDecoration = TextDecoration.Underline,
         platformStyle = IGCompat.getPlatformStyleCompat(),
@@ -111,7 +101,6 @@ object LeagueWikiTypography {
     val textBaseMedium: TextStyle = TextStyle(
         fontFamily = FrizQuadrata,
         fontSize = 15.sp,
-        lineHeight = 24.sp,
         fontWeight = FontWeight.W500,
         platformStyle = IGCompat.getPlatformStyleCompat(),
     )
@@ -119,7 +108,6 @@ object LeagueWikiTypography {
     val textBaseSemiBold: TextStyle = TextStyle(
         fontFamily = FrizQuadrata,
         fontSize = 15.sp,
-        lineHeight = 24.sp,
         fontWeight = FontWeight.W600,
         platformStyle = IGCompat.getPlatformStyleCompat(),
     )
@@ -127,7 +115,6 @@ object LeagueWikiTypography {
     val textSmall: TextStyle = TextStyle(
         fontFamily = FrizQuadrata,
         fontSize = 14.sp,
-        lineHeight = 20.sp,
         fontWeight = FontWeight.W400,
         platformStyle = IGCompat.getPlatformStyleCompat(),
     )
@@ -135,7 +122,6 @@ object LeagueWikiTypography {
     val textSmallMedium: TextStyle = TextStyle(
         fontFamily = FrizQuadrata,
         fontSize = 14.sp,
-        lineHeight = 20.sp,
         fontWeight = FontWeight.W500,
         platformStyle = IGCompat.getPlatformStyleCompat(),
     )
@@ -143,7 +129,6 @@ object LeagueWikiTypography {
     val textXs: TextStyle = TextStyle(
         fontFamily = FrizQuadrata,
         fontSize = 12.sp,
-        lineHeight = 16.sp,
         fontWeight = FontWeight.W400,
         platformStyle = IGCompat.getPlatformStyleCompat(),
     )

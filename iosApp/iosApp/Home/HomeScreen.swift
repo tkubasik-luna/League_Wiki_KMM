@@ -7,24 +7,43 @@ import KMPNativeCoroutinesCombine
 struct HomeScreenView: View {
     @ObservedObject var viewModel: HomeViewModel = HomeViewModel()
     
-    @State private var selection: String? = nil
-
-    init() {
-        viewModel.startCollectingRemote()
-        viewModel.startCollectingFlow()
-    }
-    
     var body: some View {
         NavigationView {
-            List(viewModel.value, id: \.id) { championInfo in
-                NavigationLink {
-                    ChampionDetailScreen(championId: championInfo.id)
-                } label: {
-                    ChampionListItemView(championInfo: championInfo) {
-                        viewModel.toggleFavorite(id: championInfo.id)
+            ScrollView {
+                LazyVStack {
+                    if(!viewModel.value.filter { champion in champion.isFavorite }.isEmpty) {
+                        SectionTitle(title: "Favorites")
+                        ScrollView(.horizontal, showsIndicators: false) {
+                            LazyHStack(alignment: .center) {
+                                ForEach(
+                                    viewModel.value.filter { champion in champion.isFavorite },
+                                    id: \.title
+                                ) { championInfo in
+                                    NavigationLink {
+                                        ChampionDetailScreen(championId: championInfo.id)
+                                    } label: {
+                                        FavoriteChampionView(championInfo: championInfo) {
+                                            viewModel.toggleFavorite(id: championInfo.id)
+                                        }
+                                    }
+                                }
+                        }
+                        }
+                        Spacer().frame(height: 16)
+                        SectionTitle(title: "All")
                     }
-                }
-            }.navigationTitle("LeagueWiki")
+                    ForEach(viewModel.value, id: \.id) { championInfo in
+                        NavigationLink {
+                            ChampionDetailScreen(championId: championInfo.id)
+                        } label: {
+                            ChampionListItemView(championInfo: championInfo) {
+                                viewModel.toggleFavorite(id: championInfo.id)
+                            }
+                        }
+                    }
+                }.padding(16)
+            }
+            .navigationTitle("LeagueWiki")
         }
 	}
 }

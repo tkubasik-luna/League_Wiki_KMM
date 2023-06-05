@@ -10,11 +10,12 @@ object SharedConstants {
         const val VIDEO_URL_PASSIVE: String = "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/%s/ability_%s_%s1.webm"
     }
 
-    object Champions {
-        const val DEFAULT_SKIN_NAME: String = "default"
-    }
-
     object HomeDimens {
         const val ChampionImageSize: Int = 72
+    }
+
+    object DetailDimens {
+        const val SpellImageSize: Int = 40
+        const val SkinImageAspectRatio: Float = 16f / 9f
     }
 }

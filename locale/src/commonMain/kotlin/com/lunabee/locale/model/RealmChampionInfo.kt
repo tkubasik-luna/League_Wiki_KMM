@@ -10,23 +10,20 @@ class RealmChampionInfo() : RealmObject {
     var name: String? = null
     var title: String? = null
     var version: String? = null
-    var isFavorite: Boolean = false
 
     constructor(
         id: String = "",
         name: String? = null,
         title: String? = null,
         version: String? = null,
-        isFavorite: Boolean = false,
     ) : this() {
         this.id = id
         this.name = name
         this.title = title
         this.version = version
-        this.isFavorite = isFavorite
     }
 
-    fun toChampionInfo(): ChampionInfo {
+    fun toChampionInfo(isFavorite: Boolean): ChampionInfo {
         return ChampionInfo(
             id, name, title, version, isFavorite
         )
@@ -39,7 +36,6 @@ class RealmChampionInfo() : RealmObject {
                 championInfo.name,
                 championInfo.title,
                 championInfo.version,
-                championInfo.isFavorite
             )
         }
     }

@@ -1,19 +1,20 @@
 //
-//  ChampionListItemView.swift
+//  FavoriteChampionView.swift
 //  iosApp
 //
-//  Created by Tom Kubasik on 27/05/2023.
+//  Created by Tom Kubasik on 04/06/2023.
 //  Copyright © 2023 orgName. All rights reserved.
 //
 
 import SwiftUI
 import shared
 
-struct ChampionListItemView: View {
+struct FavoriteChampionView: View {
     var championInfo: UiChampionInfo
     var onFavoriteClick: () -> Void
+    
     var body: some View {
-        HStack(alignment: .center) {
+        VStack(alignment: .center) {
             AsyncImage(url: URL(string: championInfo.imageUrl)) { image in
                 image
                     .resizable()
@@ -26,24 +27,20 @@ struct ChampionListItemView: View {
                 height: CGFloat(SharedConstants.HomeDimens.shared.ChampionImageSize)
             )
             .clipShape(Circle())
-            VStack(alignment: .leading) {
-                Text(championInfo.name ?? "")
-                    .font(LeagueWikiTypography.textLarge)
-                    .foregroundColor(LeagueWikiColorTheme.contentPrimary)
-                Text(championInfo.title ?? "")
-                    .font(LeagueWikiTypography.textBase)
-                    .foregroundColor(LeagueWikiColorTheme.contentSecondary)
-            }
+            .overlay(
+                alignment: .bottomTrailing,
+                content: {
+                    FavoriteButton(isFavorite : championInfo.isFavorite, onClick: onFavoriteClick)
+                        .offset(x:16, y:16)
+                }
+            )
+            Spacer().frame(height: 12)
+            Text(championInfo.name ?? "")
+                .font(LeagueWikiTypography.textLarge)
+                .foregroundColor(LeagueWikiColorTheme.contentPrimary)
         }
         .padding(12)
-        .frame(maxWidth: .infinity, alignment: .leading)
         .background(LeagueWikiColorTheme.backgroundSecondary)
         .clipShape(RoundedRectangle(cornerRadius: 8))
-        .overlay(
-            alignment: .topTrailing,
-            content: {
-                FavoriteButton(isFavorite : championInfo.isFavorite, onClick: onFavoriteClick)
-            }
-        )
     }
 }
