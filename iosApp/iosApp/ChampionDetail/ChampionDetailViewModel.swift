@@ -19,34 +19,25 @@ class DetailViewModel: ObservableObject {
     private let delegate = IosDetailViewModelDelegate()
     
     func observeChampionDetail() {
-        _ = Task {
-            do {
-                let sequence = asyncSequence(for: self.delegate.championDetail(id: championId))
-                for try await value in sequence {
-                    self.championDetail = value
-                }
-            } catch {
-                print("Failed with error: \(error)")
+        Task {
+            let sequence = asyncSequence(for: self.delegate.championDetail(id: championId))
+            for try await value in sequence {
+                self.championDetail = value
             }
         }
     }
     
     func toggleFavorite() {
-        _ = Task {
-            do {
-                _ = try await asyncFunction(for:self.delegate.toggleFavorite(
-                    id: championId,
-                    isFavorite: championDetail?.isFavorite ?? false)
-                )
-                print("Success setFavorite")
-            } catch {
-                print("Failed with error: \(error)")
-            }
+       Task {
+            try await asyncFunction(for:self.delegate.toggleFavorite(
+                id: championId,
+                isFavorite: championDetail?.isFavorite ?? false)
+            )
         }
     }
     
     func refreshFromRemote() {
-        _ = Task {
+        Task {
             do {
                 _ = try await asyncFunction(for:self.delegate.refresh(id: championId))
                 print("Success refresh")

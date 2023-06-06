@@ -17,31 +17,22 @@ class HomeViewModel: ObservableObject {
     private let delegate = IosHomeViewModelDelegate()
 
     func startCollectingFlow() {
-        _ = Task {
-            do {
-                let sequence = asyncSequence(for: self.delegate.championList)
-                for try await value in sequence {
-                    self.value = value
-                }
-            } catch {
-                print("Failed with error: \(error)")
+        Task {
+            let sequence = asyncSequence(for: self.delegate.championList)
+            for try await value in sequence {
+                self.value = value
             }
         }
     }
     
     func toggleFavorite(id: String) {
-        _ = Task {
-            do {
-                _ = try await asyncFunction(for:self.delegate.toggleFavorite(id: id))
-                print("Success setFavorite")
-            } catch {
-                print("Failed with error: \(error)")
-            }
+        Task {
+            try await asyncFunction(for:self.delegate.toggleFavorite(id: id))
         }
     }
     
     func startCollectingRemote() {
-        _ = Task {
+        Task {
             do {
                 _ = try await asyncFunction(for:self.delegate.refresh())
                 print("Success refresh")
