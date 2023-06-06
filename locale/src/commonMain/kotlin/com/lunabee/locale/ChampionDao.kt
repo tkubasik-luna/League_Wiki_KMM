@@ -1,5 +1,6 @@
 package com.lunabee.locale
 
+import com.lunabee.domain.inject.Inject
 import com.lunabee.domain.model.ChampionDetail
 import com.lunabee.domain.model.ChampionInfo
 import com.lunabee.locale.model.RealChampionFavorite
@@ -11,7 +12,7 @@ import io.realm.kotlin.ext.query
 import io.realm.kotlin.notifications.ResultsChange
 import kotlinx.coroutines.flow.Flow
 
-class ChampionDao(
+class ChampionDao @Inject constructor(
     private val realm: Realm,
 ) {
 

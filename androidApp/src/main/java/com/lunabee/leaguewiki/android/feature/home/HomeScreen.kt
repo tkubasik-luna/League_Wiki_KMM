@@ -18,17 +18,17 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.lunabee.leaguewiki.android.common.component.SectionTitle
 import com.lunabee.leaguewiki.android.feature.home.component.ChampionFavoriteCell
 import com.lunabee.leaguewiki.android.feature.home.component.ChampionListItem
 import com.lunabee.leaguewiki.android.theme.LeagueWikiTheme
 import com.lunabee.leaguewiki.feature.home.UiChampionInfo
-import org.koin.androidx.compose.koinViewModel
 
 @Composable
 fun HomeRoute(
     navigateToChampionDetail: (String) -> Unit,
-    viewModel: HomeViewModel = koinViewModel(),
+    viewModel: HomeViewModel = hiltViewModel(),
 ) {
     val championList by viewModel.championList.collectAsState(initial = listOf())
     HomeScreen(

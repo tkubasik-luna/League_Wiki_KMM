@@ -27,6 +27,7 @@ import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.zIndex
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.lunabee.leaguewiki.android.common.component.FavoriteIconButton
 import com.lunabee.leaguewiki.android.common.component.SectionTitle
 import com.lunabee.leaguewiki.android.common.component.collapsingtoolbar.CollapsingToolbarScaffold
@@ -39,12 +40,11 @@ import com.lunabee.leaguewiki.android.feature.detail.component.SpellCell
 import com.lunabee.leaguewiki.android.feature.detail.component.TagCell
 import com.lunabee.leaguewiki.android.theme.LeagueWikiTheme
 import com.lunabee.leaguewiki.feature.detail.UiChampionDetail
-import org.koin.androidx.compose.koinViewModel
 
 @Composable
 fun DetailRoute(
     navigateBack: () -> Unit,
-    viewModel: DetailViewModel = koinViewModel(),
+    viewModel: DetailViewModel = hiltViewModel(),
 ) {
     val championDetail by viewModel.championDetail.collectAsState(initial = null)
     championDetail?.let {

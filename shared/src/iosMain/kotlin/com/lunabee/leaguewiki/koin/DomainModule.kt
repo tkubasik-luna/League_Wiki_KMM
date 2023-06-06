@@ -1,4 +1,4 @@
-package com.lunabee.leaguewiki
+package com.lunabee.leaguewiki.koin
 
 import com.lunabee.domain.ChampionRepository
 import com.lunabee.repository.repository.ChampionRepositoryImpl

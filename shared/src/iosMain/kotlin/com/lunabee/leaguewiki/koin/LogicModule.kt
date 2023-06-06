@@ -1,4 +1,4 @@
-package com.lunabee.leaguewiki
+package com.lunabee.leaguewiki.koin
 
 import org.koin.core.module.Module
 

@@ -4,6 +4,8 @@ plugins {
     id("com.google.devtools.ksp")
     id("com.rickclephas.kmp.nativecoroutines") version "1.0.0-ALPHA-10"
     id("io.realm.kotlin") version "1.9.0"
+    kotlin("kapt")
+    id("com.google.dagger.hilt.android")
 }
 
 kotlin {
@@ -29,7 +31,6 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 implementation(KotlinX.coroutines.core)
-                implementation(Koin.core)
                 implementation(Ktor.client.core)
                 implementation(Ktor.client.serialization)
                 implementation("io.ktor:ktor-serialization-kotlinx-json:_")
@@ -47,6 +48,16 @@ kotlin {
         val androidMain by getting {
             dependencies {
                 implementation(Ktor.client.android)
+
+                // Hilt.
+                implementation(Google.dagger.hilt.android)
+                configurations.get("kapt").dependencies.add(
+                    org.gradle.api.internal.artifacts.dependencies.DefaultExternalModuleDependency(
+                        "com.google.dagger",
+                        "hilt-android-compiler",
+                        "_"
+                    )
+                )
             }
         }
 
@@ -59,6 +70,7 @@ kotlin {
             iosArm64Main.dependsOn(this)
             iosSimulatorArm64Main.dependsOn(this)
             dependencies {
+                implementation(Koin.core)
                 implementation(Ktor.client.darwin)
             }
         }

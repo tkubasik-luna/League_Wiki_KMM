@@ -1,6 +1,7 @@
 package com.lunabee.leaguewiki.feature.detail
 
 import com.lunabee.domain.ChampionRepository
+import com.lunabee.domain.inject.Inject
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
@@ -12,7 +13,7 @@ interface DetailViewModelDelegate {
     suspend fun toggleFavorite(id: String, isFavorite: Boolean)
 }
 
-class DetailViewModelDelegateImpl(
+class DetailViewModelDelegateImpl @Inject constructor(
     private val championRepository: ChampionRepository,
 ) : DetailViewModelDelegate {
     override fun championDetail(id: String): Flow<UiChampionDetail?> {

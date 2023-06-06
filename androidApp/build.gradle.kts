@@ -1,7 +1,8 @@
 plugins {
     id("com.android.application")
     kotlin("android")
-    id("com.google.devtools.ksp")
+    kotlin("kapt")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -47,6 +48,14 @@ tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().all {
     }
 }
 
+kapt {
+    correctErrorTypes = true
+}
+
+hilt {
+    enableAggregatingTask = true
+}
+
 dependencies {
     implementation(project(":shared"))
     // Compose
@@ -56,12 +65,15 @@ dependencies {
     implementation(AndroidX.compose.material)
     implementation(Google.accompanist.systemUiController)
     implementation(AndroidX.navigation.compose)
+    implementation(AndroidX.appCompat)
     implementation(COIL.compose)
     implementation(AndroidX.lifecycle.runtime.compose)
     debugImplementation(AndroidX.compose.ui.tooling)
     implementation(AndroidX.compose.ui.toolingPreview)
-    implementation(Koin.core)
-    implementation(Koin.android)
-    implementation(Koin.compose)
-    implementation(Koin.navigation)
+
+    // Hilt
+    implementation(Google.dagger.hilt.android)
+    kapt(AndroidX.hilt.compiler)
+    kapt(Google.dagger.hilt.compiler)
+    implementation(AndroidX.hilt.navigationCompose)
 }

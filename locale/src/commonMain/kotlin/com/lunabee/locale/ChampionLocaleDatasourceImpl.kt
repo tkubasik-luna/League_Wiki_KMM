@@ -1,5 +1,6 @@
 package com.lunabee.locale
 
+import com.lunabee.domain.inject.Inject
 import com.lunabee.domain.model.ChampionDetail
 import com.lunabee.domain.model.ChampionInfo
 import com.lunabee.repository.datasource.ChampionLocaleDatasource
@@ -7,7 +8,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.map
 
-class ChampionLocaleDatasourceImpl(
+class ChampionLocaleDatasourceImpl @Inject constructor(
     private val championDao: ChampionDao,
 ) : ChampionLocaleDatasource {
     override fun getChampionsList(): Flow<List<ChampionInfo>> {

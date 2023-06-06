@@ -1,5 +1,6 @@
-package com.lunabee.leaguewiki
+package com.lunabee.leaguewiki.koin
 
+import com.lunabee.leaguewiki.di.commonProvideRealm
 import com.lunabee.locale.ChampionDao
 import com.lunabee.locale.ChampionLocaleDatasourceImpl
 import com.lunabee.locale.model.RealChampionFavorite
@@ -19,25 +20,7 @@ import org.koin.core.module.Module
 import org.koin.dsl.module
 
 val localeModule: Module = module {
-    single { provideRealm() }
+    single { commonProvideRealm() }
     single { ChampionDao(get()) }
     single<ChampionLocaleDatasource> { ChampionLocaleDatasourceImpl(get()) }
-}
-
-fun provideRealm(): Realm {
-    val config = RealmConfiguration.create(
-        schema = setOf(
-            RealmChampionInfo::class,
-            RealmChampionDetail::class,
-            RealmInfo::class,
-            RealmPassive::class,
-            RealmSkin::class,
-            RealmSpell::class,
-            ReamStats::class,
-            RealmEffect::class,
-            RealmLeveltip::class,
-            RealChampionFavorite::class
-        )
-    )
-    return Realm.open(config)
 }

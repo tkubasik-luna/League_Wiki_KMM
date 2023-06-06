@@ -1,6 +1,7 @@
 package com.lunabee.repository.repository
 
 import com.lunabee.domain.ChampionRepository
+import com.lunabee.domain.inject.Inject
 import com.lunabee.domain.model.ChampionDetail
 import com.lunabee.domain.model.ChampionInfo
 import com.lunabee.repository.datasource.ChampionLocaleDatasource
@@ -8,7 +9,7 @@ import com.lunabee.repository.datasource.ChampionRemoteDatasource
 import com.lunabee.repository.datasource.VersionRemoteDatasource
 import kotlinx.coroutines.flow.Flow
 
-class ChampionRepositoryImpl(
+class ChampionRepositoryImpl @Inject constructor(
     private val versionRemoteDatasource: VersionRemoteDatasource,
     private val championRemoteDatasource: ChampionRemoteDatasource,
     private val championLocaleDatasource: ChampionLocaleDatasource,

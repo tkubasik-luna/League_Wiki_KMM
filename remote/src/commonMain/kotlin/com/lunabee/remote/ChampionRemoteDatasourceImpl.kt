@@ -1,11 +1,12 @@
 package com.lunabee.remote
 
+import com.lunabee.domain.inject.Inject
 import com.lunabee.domain.model.ChampionDetail
 import com.lunabee.domain.model.ChampionInfo
 import com.lunabee.remote.api.ChampionApi
 import com.lunabee.repository.datasource.ChampionRemoteDatasource
 
-class ChampionRemoteDatasourceImpl(
+class ChampionRemoteDatasourceImpl @Inject constructor(
     private val championApi: ChampionApi,
 ) : ChampionRemoteDatasource {
 

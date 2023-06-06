@@ -14,6 +14,11 @@ kotlin {
                 implementation(KotlinX.coroutines.core)
             }
         }
+        val jvmMain by getting {
+            dependencies {
+                api("com.google.dagger:hilt-core:_")
+            }
+        }
     }
 }
 

@@ -1,4 +1,4 @@
-package com.lunabee.leaguewiki
+package com.lunabee.leaguewiki.koin
 
 import com.lunabee.leaguewiki.feature.detail.DetailViewModelDelegate
 import com.lunabee.leaguewiki.feature.detail.DetailViewModelDelegateImpl

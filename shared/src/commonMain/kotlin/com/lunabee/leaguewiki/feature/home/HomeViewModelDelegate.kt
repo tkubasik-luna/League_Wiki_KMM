@@ -1,6 +1,7 @@
 package com.lunabee.leaguewiki.feature.home
 
 import com.lunabee.domain.ChampionRepository
+import com.lunabee.domain.inject.Inject
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
@@ -12,7 +13,7 @@ interface HomeViewModelDelegate {
     suspend fun toggleFavorite(id: String)
 }
 
-class HomeViewModelDelegateImpl(
+class HomeViewModelDelegateImpl @Inject constructor(
     private val championRepository: ChampionRepository,
 ) : HomeViewModelDelegate {
     override val championList: Flow<List<UiChampionInfo>> = championRepository.getChampionsList().map { list ->
